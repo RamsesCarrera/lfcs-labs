@@ -4,7 +4,7 @@
   "details": {
     "intro": {
       "text": "intro.md",
-      "foreground": "bash setup.sh"
+      "foreground": "./setup.sh"
     }
   },
   "backend": {
