@@ -1,7 +1,18 @@
-# Welcome to Session 0 - Technical Assessment
-
-To prepare your environment, please **click the command below** to run the setup script manually:
-
-`git clone https://github.com/RamsesCarrera/lfcs-labs.git && bash lfcs-labs/assessment-session-0/foreground.sh`
-
-Once the message "READY" appears, you can begin the assessment.
+   Welcome to the **LFCS (Linux Foundation Certified System Administrator)** training program. This environment is pre-configured with the files needed for your evaluation.
+   
+   ### Instructions:
+   1. Use the terminal on the right to perform the tasks.
+   2. Refer to the **LFCS-Practice-Questions-v1.1.pdf** provided via email.
+   3. You will find the target files in:
+      - `/home/student/textreferences/editme.txt`
+      - `/srv/SAMPLE002/`
+      - `/opt/SAMPLE001.zip`
+   
+   ### Constraints:
+   - **No AI assistance:** Please solve this using your current knowledge and man pages.
+   - **Time:** Aim to complete the core tasks within 90 minutes.
+   
+   ### Submission:
+   Once finished, document your commands in a PDF and upload it to the Microsoft Form link.
+   
+   **Good luck! Let's see your Linux skills in action.**
