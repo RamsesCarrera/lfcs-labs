@@ -7,7 +7,14 @@ echo "Preparing LFCS lab environment..."
 # Install dependencies
 # ------------------------------------------------
 apt-get update -y
-apt-get install -y zip
+apt-get install -y git zip
+
+cd /root
+git clone https://github.com/RamsesCarrera/lfcs-labs.git
+cd lfcs-labs
+
+cp *.sh /usr/local/bin/
+chmod +x /usr/local/bin/*.sh
 
 # ------------------------------------------------
 # Create student user if it doesn't exist
