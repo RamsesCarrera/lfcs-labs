@@ -97,9 +97,8 @@ chown -R student:student /opt/SAMPLE001.zip
 echo "su - student" >> /root/.bashrc
 
 # Make exam commands available
-cp *.sh /usr/local/bin/
-chmod +x /usr/local/bin/*.sh
-
+cp /root/.killercoda/*.sh /usr/local/bin/ 2>/dev/null || true
+chmod +x /usr/local/bin/*.sh 2>/dev/null || true
 
 echo ""
 echo "=========================================="
