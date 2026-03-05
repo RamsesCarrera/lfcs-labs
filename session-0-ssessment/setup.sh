@@ -97,8 +97,9 @@ chown -R student:student /opt/SAMPLE001.zip
 echo "su - student" >> /root/.bashrc
 
 # Make exam commands available
-cp /tmp/repo/git/assessment-session-0/*.sh /usr/local/bin/
+cp *.sh /usr/local/bin/
 chmod +x /usr/local/bin/*.sh
+
 
 echo ""
 echo "=========================================="
