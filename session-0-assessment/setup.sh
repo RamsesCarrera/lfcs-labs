@@ -8,7 +8,7 @@ echo "Preparing LFCS lab environment..."
 # ------------------------------------------------
 apt-get update -y
 apt-get install -y git zip
-
+apt-get install -y bc
 
 # ------------------------------------------------
 # Clone repo to get scripts

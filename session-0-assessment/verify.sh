@@ -1,112 +1,350 @@
 #!/usr/bin/env bash
 
-score=0
-total=10
-
-if [ ! -f /opt/student_name ]; then
-  echo "You must run register.sh first"
-  exit 1
-fi
-
-echo ""
-echo "Checking LFCS tasks..."
-echo ""
+NAME=$(cat /opt/student_name 2>/dev/null || echo "unknown")
+DATE=$(date)
 
 FILE="/home/student/textreferences/editme.txt"
-
-# TASK 1
-first_line=$(head -n 1 "$FILE")
-
-if [[ "$first_line" == *7777* ]]; then
-    echo "✔ Line 7777 moved correctly"
-    ((score++))
-else
-    echo "✘ Line 7777 not moved"
-fi
-
-# TASK 2
-if ! grep -q "7000" "$FILE"; then
-    echo "✔ Line 7000 removed"
-    ((score++))
-else
-    echo "✘ Line 7000 still exists"
-fi
-
-# TASK 3
-if ! grep -q "Earth" "$FILE" && grep -q "Globe" "$FILE"; then
-    echo "✔ Word replacement correct"
-    ((score++))
-else
-    echo "✘ Word replacement incorrect"
-fi
-
-# TASK 4
-last_line=$(tail -n 1 "$FILE")
-
-if [[ "$last_line" == *"Auctores Varii"* ]]; then
-    echo "✔ Final line added"
-    ((score++))
-else
-    echo "✘ Final line missing"
-fi
-
-# TASK 5
-if [ -d "/opt/SAMPLE001" ]; then
-    echo "✔ SAMPLE001 extracted"
-    ((score++))
-else
-    echo "✘ SAMPLE001 not extracted"
-fi
-
-# TASK 6
-if [ -f "/opt/SAMPLE0001.tar" ]; then
-    echo "✔ tar archive created"
-    ((score++))
-else
-    echo "✘ tar archive missing"
-fi
-
-# TASK 7
-if [ -f "/opt/SAMPLE0001.tar.bz2" ]; then
-    echo "✔ bzip compression created"
-    ((score++))
-else
-    echo "✘ bzip compression missing"
-fi
-
-# TASK 8
-if [ -f "/opt/SAMPLE0001.tar.xz" ]; then
-    echo "✔ xz compression created"
-    ((score++))
-else
-    echo "✘ xz compression missing"
-fi
-
-# TASK 9
-if ! find /srv/SAMPLE002 -type f -executable | grep -q .; then
-    echo "✔ Executables removed"
-    ((score++))
-else
-    echo "✘ Executables still exist"
-fi
-
-# TASK 10
-if ! find /srv/SAMPLE002 -type d -empty | grep -q .; then
-    echo "✔ Empty directories removed"
-    ((score++))
-else
-    echo "✘ Empty directories still exist"
-fi
+SCRIPT="/home/student/apps/certscript.sh"
 
 echo ""
-echo "Score: $score / $total"
+echo "=========================================="
+echo " LFCS PRACTICE EXAM VERIFICATION"
+echo "=========================================="
+echo ""
 
-echo "$score" > /tmp/lfcs_score
+# DOMAIN SCORES
+essential=0
+essential_total=8
 
-NAME=$(cat /opt/student_name)
-DATE=$(date -Iseconds)
+operations=0
+operations_total=4
 
-echo "$NAME,$score,$DATE" >> /opt/exam_results.csv
+network=0
+network_total=2
 
-bash finish.sh
+storage=0
+storage_total=4
 
+users=0
+users_total=14
+
+
+#############################################
+# ESSENTIAL COMMANDS
+#############################################
+
+echo "Checking Essential Commands..."
+
+if head -n1 "$FILE" | grep -q 7777; then
+ ((essential++))
+ echo "✔ line 7777 moved"
+else
+ echo "✘ line 7777 not moved"
+fi
+
+if ! grep -q "7000" "$FILE"; then
+ ((essential++))
+ echo "✔ line 7000 removed"
+else
+ echo "✘ line 7000 still exists"
+fi
+
+if ! grep -q "Earth" "$FILE" && grep -q "Globe" "$FILE"; then
+ ((essential++))
+ echo "✔ Earth replaced"
+else
+ echo "✘ replacement incorrect"
+fi
+
+if tail -n1 "$FILE" | grep -q "Auctores Varii"; then
+ ((essential++))
+ echo "✔ final line added"
+else
+ echo "✘ final line missing"
+fi
+
+# archive tasks
+
+if [ -d /opt/SAMPLE001 ]; then
+ ((essential++))
+ echo "✔ zip extracted"
+else
+ echo "✘ zip extraction missing"
+fi
+
+if [ -f /opt/SAMPLE0001.tar ]; then
+ ((essential++))
+ echo "✔ tar created"
+else
+ echo "✘ tar missing"
+fi
+
+if [ -f /opt/SAMPLE0001.tar.bz2 ]; then
+ ((essential++))
+ echo "✔ bz2 created"
+else
+ echo "✘ bz2 missing"
+fi
+
+if [ -f /opt/SAMPLE0001.tar.xz ]; then
+ ((essential++))
+ echo "✔ xz created"
+else
+ echo "✘ xz missing"
+fi
+
+
+#############################################
+# OPERATIONS
+#############################################
+
+echo ""
+echo "Checking Operations..."
+
+if [ -x "$SCRIPT" ]; then
+ ((operations++))
+ echo "✔ certscript exists"
+else
+ echo "✘ certscript missing"
+fi
+
+if "$SCRIPT" 2>/dev/null | head -n1 | grep -q "$(whoami)"; then
+ ((operations++))
+ echo "✔ script prints username"
+else
+ echo "✘ username incorrect"
+fi
+
+gateway=$(ip route | grep default | awk '{print $3}')
+
+if "$SCRIPT" 2>/dev/null | grep -q "$gateway"; then
+ ((operations++))
+ echo "✔ gateway printed"
+else
+ echo "✘ gateway incorrect"
+fi
+
+if command -v tmux >/dev/null; then
+ ((operations++))
+ echo "✔ tmux installed"
+else
+ echo "✘ tmux missing"
+fi
+
+if crontab -l 2>/dev/null | grep -q scan_filesystem; then
+ ((operations++))
+ echo "✔ cron configured"
+else
+ echo "✘ cron missing"
+fi
+
+
+#############################################
+# NETWORKING
+#############################################
+
+echo ""
+echo "Checking Networking..."
+
+if [ -f /home/student/port-2605.txt ]; then
+ ((network++))
+ echo "✔ port lookup file"
+else
+ echo "✘ port lookup missing"
+fi
+
+if [ -f /home/student/imap-ports.txt ]; then
+ ((network++))
+ echo "✔ imap ports file"
+else
+ echo "✘ imap ports missing"
+fi
+
+
+#############################################
+# STORAGE
+#############################################
+
+echo ""
+echo "Checking Storage..."
+
+if mount | grep -q "/mnt/backup"; then
+ ((storage++))
+ echo "✔ backup mounted"
+else
+ echo "✘ backup mount missing"
+fi
+
+if [ -d /opt/proddata ]; then
+ ((storage++))
+ echo "✔ proddata extracted"
+else
+ echo "✘ extraction missing"
+fi
+
+if ! swapon --show | grep -q xvdi1; then
+ ((storage++))
+ echo "✔ swap disabled"
+else
+ echo "✘ swap still active"
+fi
+
+if mount | grep "/staging" | grep -q ro; then
+ ((storage++))
+ echo "✔ staging mounted read-only"
+else
+ echo "✘ staging not read-only"
+fi
+
+
+#############################################
+# USERS & GROUPS
+#############################################
+
+echo ""
+echo "Checking Users & Groups..."
+
+if getent group computestream >/dev/null; then
+ ((users++))
+ echo "✔ computestream group"
+else
+ echo "✘ group missing"
+fi
+
+if [ -d /exam/computestream ]; then
+ ((users++))
+ echo "✔ directory created"
+else
+ echo "✘ directory missing"
+fi
+
+if stat -c "%G" /exam/computestream 2>/dev/null | grep -q computestream; then
+ ((users++))
+ echo "✔ group ownership correct"
+else
+ echo "✘ ownership incorrect"
+fi
+
+if id candidate >/dev/null 2>&1; then
+ ((users++))
+ echo "✔ candidate user"
+else
+ echo "✘ candidate missing"
+fi
+
+if sudo -l -U candidate 2>/dev/null | grep -q NOPASSWD; then
+ ((users++))
+ echo "✔ candidate sudo"
+else
+ echo "✘ candidate sudo incorrect"
+fi
+
+if grep -q NEWS /etc/skel/* 2>/dev/null; then
+ ((users++))
+ echo "✔ NEWS template"
+else
+ echo "✘ NEWS template missing"
+fi
+
+if getent group students >/dev/null; then
+ ((users++))
+ echo "✔ students group"
+else
+ echo "✘ students missing"
+fi
+
+if id harry >/dev/null 2>&1; then
+ ((users++))
+ echo "✔ harry user"
+else
+ echo "✘ harry missing"
+fi
+
+if getent passwd harry | grep -q "/home/school/harry"; then
+ ((users++))
+ echo "✔ harry home correct"
+else
+ echo "✘ harry home incorrect"
+fi
+
+if id harry | grep -q students; then
+ ((users++))
+ echo "✔ harry in students"
+else
+ echo "✘ harry group incorrect"
+fi
+
+if id sysadmin >/dev/null 2>&1; then
+ ((users++))
+ echo "✔ sysadmin user"
+else
+ echo "✘ sysadmin missing"
+fi
+
+if getent passwd sysadmin | grep -q "/sysadmin"; then
+ ((users++))
+ echo "✔ sysadmin home correct"
+else
+ echo "✘ sysadmin home incorrect"
+fi
+
+if getent passwd sysadmin | grep -q zsh; then
+ ((users++))
+ echo "✔ sysadmin shell"
+else
+ echo "✘ sysadmin shell incorrect"
+fi
+
+if sudo -l -U sysadmin 2>/dev/null | grep -q NOPASSWD; then
+ ((users++))
+ echo "✔ sysadmin sudo"
+else
+ echo "✘ sysadmin sudo incorrect"
+fi
+
+
+#############################################
+# CALCULATE DOMAIN SCORES
+#############################################
+
+essential_pct=$((essential*100/essential_total))
+operations_pct=$((operations*100/operations_total))
+network_pct=$((network*100/network_total))
+storage_pct=$((storage*100/storage_total))
+users_pct=$((users*100/users_total))
+
+final=$(echo "
+($operations_pct*0.25)+
+($network_pct*0.25)+
+($storage_pct*0.20)+
+($essential_pct*0.20)+
+($users_pct*0.10)
+" | bc)
+
+echo ""
+echo "=========================================="
+echo " DOMAIN RESULTS"
+echo "=========================================="
+
+echo "Essential Commands : $essential_pct%"
+echo "Operations         : $operations_pct%"
+echo "Networking         : $network_pct%"
+echo "Storage            : $storage_pct%"
+echo "Users & Groups     : $users_pct%"
+
+echo ""
+echo "=========================================="
+echo " FINAL SCORE"
+echo "=========================================="
+
+printf "%.2f%%\n" "$final"
+
+echo ""
+echo "=========================================="
+echo " COPY INTO MICROSOFT FORM"
+echo "=========================================="
+
+echo "$NAME | $final%"
+echo ""
+echo "Date: $DATE"
+echo ""
