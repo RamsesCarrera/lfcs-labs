@@ -132,7 +132,7 @@ chown -R student:student /opt/SAMPLE001.zip
 # ------------------------------------------------
 # Auto switch to student
 # ------------------------------------------------
-echo "su - student" >> /root/.bashrc
+su - student
 
 echo ""
 echo "=========================================="
