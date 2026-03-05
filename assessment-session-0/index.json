@@ -4,7 +4,7 @@
   "details": {
     "intro": {
       "text": "intro.md",
-      "background": "start.sh"
+      "background": "bash start.sh"
     },
     "finish": {
       "text": "finish.md"
