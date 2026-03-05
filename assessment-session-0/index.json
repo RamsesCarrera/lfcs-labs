@@ -2,6 +2,10 @@
   "title": "LFCS - Session 0 Assessment",
   "description": "Initial technical evaluation",
   "details": {
+    "steps": [{
+      "title": "Instructions",
+      "text": "intro.md"
+    }],
     "intro": {
       "text": "intro.md"
     }
