@@ -2,12 +2,31 @@
   "title": "LFCS Training Program - Session 0 Assessment",
   "description": "Initial technical evaluation",
   "details": {
-    "steps": [{
-      "title": "Instructions",
-      "text": "intro.md"
-    }],
+    "steps": [
+      {
+        "title": "Environment Setup",
+        "text": "step1.md",
+        "commands": [
+          "mkdir -p /home/student/textreferences /home/student/apps /opt/SAMPLE001 /srv/SAMPLE002 /opt/SAMPLE002",
+          "echo 'Generating 8000 lines for Vim exercise...'",
+          "awk 'BEGIN {for(i=1;i<=8000;i++) { if(i==7777) print \"This is the famous line 7777 - Earth\"; else if(i==7000) print \"This line 7000 should be deleted\"; else print \"Line \"i\": Content about Earth and Linux\" }}' > /home/student/textreferences/editme.txt",
+          "echo 'Setting up Compression exercise...'",
+          "echo 'Data for sample 1' > /opt/SAMPLE001/file1.txt && echo 'Data for sample 2' > /opt/SAMPLE001/file2.txt",
+          "apt-get update && apt-get install -y zip",
+          "cd /opt && zip -r SAMPLE001.zip SAMPLE001/ && rm -rf /opt/SAMPLE001/*",
+          "echo 'Setting up Search and Cleanup exercise...'",
+          "touch /srv/SAMPLE002/run_me.sh /srv/SAMPLE002/binary_tool && chmod +x /srv/SAMPLE002/run_me.sh /srv/SAMPLE002/binary_tool",
+          "touch -a -t $(date -d '40 days ago' +%Y%m%d%H%M) /srv/SAMPLE002/old_log.txt",
+          "touch -a -t $(date -d '45 days ago' +%Y%m%d%H%M) /srv/SAMPLE002/forgotten_notes.txt",
+          "mkdir -p /srv/SAMPLE002/empty_dir1 /srv/SAMPLE002/empty_dir2",
+          "touch /srv/SAMPLE002/backup1.tar /srv/SAMPLE002/backup2.tar /srv/SAMPLE002/not_a_tar_file.txt",
+          "chown -R root:root /home/student /opt/SAMPLE001 /srv/SAMPLE002 /opt/SAMPLE002",
+          "echo '✅ Environment generated successfully!'"
+        ]
+      }
+    ],
     "intro": {
-      "text": "step1.md"
+      "text": "intro.md"
     }
   },
   "backend": {
