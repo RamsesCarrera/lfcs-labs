@@ -4,6 +4,10 @@ set -e
 
 echo "Preparing LFCS lab environment..."
 
+cp /tmp/repo/git/assessment-session-0/*.sh /usr/local/bin/
+chmod +x /usr/local/bin/*.sh
+
+
 # ------------------------------------------------
 # Install dependencies
 # ------------------------------------------------

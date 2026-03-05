@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
-bash setup.sh
-bash timer.sh &
+REPO=/tmp/repo/git/assessment-session-0
+
+bash $REPO/setup.sh
+bash $REPO/timer.sh &
