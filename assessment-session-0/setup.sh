@@ -101,14 +101,14 @@ chown -R student:student /opt/SAMPLE001.zip
 # ------------------------------------------------
 echo "su - student" >> /home/ubuntu/.bashrc
 
-# ------------------------------------------------
-# Final message
-# ------------------------------------------------
+# Make exam commands available
+cp /tmp/repo/git/assessment-session-0/*.sh /usr/local/bin/
+chmod +x /usr/local/bin/*.sh
+
 echo ""
-echo "================================="
-echo "LFCS Lab Environment Ready"
-echo "================================="
+echo "=========================================="
+echo " LFCS LAB ENVIRONMENT READY"
+echo "=========================================="
 echo ""
 echo "Run: register.sh"
 echo ""
-

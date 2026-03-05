@@ -109,3 +109,4 @@ DATE=$(date -Iseconds)
 echo "$NAME,$score,$DATE" >> /opt/exam_results.csv
 
 bash finish.sh
+

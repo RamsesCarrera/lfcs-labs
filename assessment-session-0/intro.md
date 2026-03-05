@@ -7,16 +7,18 @@ Welcome to the **LFCS (Linux Foundation Certified System Administrator)** traini
       - `/home/student/textreferences/editme.txt`
       - `/srv/SAMPLE002/`
       - `/opt/SAMPLE001.zip`
+
    ## Start Exam
 
    First register your name:
-      register.sh
 
-   Check time remaining:
-      timeleft.sh
+   register.sh
 
-   ## Submit exam:
-      verify.sh
+   ---
+
+   Submit exam:
+
+   verify.sh
 
    ### Constraints:
    - **No AI assistance:** Please solve this using your current knowledge and man pages.
