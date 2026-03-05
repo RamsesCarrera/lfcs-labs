@@ -3,9 +3,6 @@ set -e
 
 echo "Preparing LFCS lab environment..."
 
-cp *.sh /usr/local/bin/
-chmod +x /usr/local/bin/*.sh
-
 # ------------------------------------------------
 # Install dependencies
 # ------------------------------------------------
