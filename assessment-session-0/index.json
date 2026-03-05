@@ -8,6 +8,6 @@
   },
   "backend": {
     "imageid": "ubuntu",
-    "init": "setup.sh"
+    "init": " bash setup.sh"
   }
 }
