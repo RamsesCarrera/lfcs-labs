@@ -9,6 +9,16 @@ echo "Preparing LFCS lab environment..."
 apt-get update -y
 apt-get install -y git zip
 
+
+# ------------------------------------------------
+# Clone repo to get scripts
+# ------------------------------------------------
+cd /root
+git clone https://github.com/RamsesCarrera/lfcs-labs.git
+
+cd /root/lfcs-labs/session-0-assessment
+
+# Make exam commands available
 cp *.sh /usr/local/bin/
 chmod +x /usr/local/bin/*.sh
 
@@ -99,9 +109,6 @@ chown -R student:student /opt/SAMPLE001.zip
 # ------------------------------------------------
 echo "su - student" >> /root/.bashrc
 
-# Make exam commands available
-cp /root/.killercoda/*.sh /usr/local/bin/ 2>/dev/null || true
-chmod +x /usr/local/bin/*.sh 2>/dev/null || true
 
 echo ""
 echo "=========================================="

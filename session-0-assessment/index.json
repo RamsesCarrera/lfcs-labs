@@ -8,14 +8,6 @@
     },
     "finish": {
       "text": "finish.md"
-    },
-    "assets": {
-      "host01": [
-        { "file": "register.sh", "target": "/usr/local/bin/register.sh" },
-        { "file": "verify.sh", "target": "/usr/local/bin/verify.sh" },
-        { "file": "reset.sh", "target": "/usr/local/bin/reset.sh" },
-        { "file": "report.sh", "target": "/usr/local/bin/report.sh" }
-      ]
     }
   },
   "backend": {
