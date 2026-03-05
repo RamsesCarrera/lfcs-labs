@@ -313,14 +313,18 @@ network_pct=$((network*100/network_total))
 storage_pct=$((storage*100/storage_total))
 users_pct=$((users*100/users_total))
 
-final=$(echo "
+final=$(echo "scale=2;
 ($operations_pct*0.25)+
 ($network_pct*0.25)+
 ($storage_pct*0.20)+
 ($essential_pct*0.20)+
-($users_pct*0.10)
-" | bc)
+($users_pct*0.10)" | bc 2>/dev/null)
 
+
+echo ""
+echo "=========================================="
+echo " COPY THE BELOW RESULTS IN THE MICROSOFT FORM"
+echo "=========================================="
 echo ""
 echo "=========================================="
 echo " DOMAIN RESULTS"
@@ -336,15 +340,8 @@ echo ""
 echo "=========================================="
 echo " FINAL SCORE"
 echo "=========================================="
-
 printf "%.2f%%\n" "$final"
 
-echo ""
-echo "=========================================="
-echo " COPY INTO MICROSOFT FORM"
-echo "=========================================="
-
-echo "$NAME | $final%"
 echo ""
 echo "Date: $DATE"
 echo ""

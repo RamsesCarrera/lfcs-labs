@@ -10,15 +10,11 @@ Welcome to the **LFCS (Linux Foundation Certified System Administrator)** traini
 
    ## Start Exam
 
-   First register your name:
-
-   register.sh
+   First register your name by using: register.sh
 
    ---
 
-   Submit exam:
-
-   verify.sh
+   When done, submit exam by using: verify.sh
 
    ### Constraints:
    - **No AI assistance:** Please solve this using your current knowledge and man pages.
