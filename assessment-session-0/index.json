@@ -4,7 +4,8 @@
   "details": {
     "intro": {
       "text": "intro.md",
-      "background": "setup.sh; bash timer.sh"
+      "background": "setup.sh",
+      "foreground": "timer.sh"
     },
     "finish": {
       "text": "finish.md"
