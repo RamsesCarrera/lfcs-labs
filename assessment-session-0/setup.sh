@@ -105,18 +105,10 @@ echo "su - student" >> /home/ubuntu/.bashrc
 # Final message
 # ------------------------------------------------
 echo ""
-echo "=========================================="
-echo " LFCS LAB ENVIRONMENT READY"
-echo "=========================================="
+echo "================================="
+echo "LFCS Lab Environment Ready"
+echo "================================="
 echo ""
-echo "Login user: student"
-echo "Password: linux"
+echo "Run: register.sh"
 echo ""
-echo "Practice files:"
-echo ""
-echo "/home/student/textreferences/editme.txt"
-echo "/srv/SAMPLE002/"
-echo "/opt/SAMPLE001.zip"
-echo ""
-echo "Good luck!"
-echo ""
+
