@@ -1,16 +1,18 @@
 {
-  "title": "LFCS - Session 0 Assessment",
-  "description": "Initial technical evaluation",
-  "details": {
-    "intro": {
-      "text": "intro.md",
-      "background": "setup.sh"
-    },
-    "finish": {
-      "text": "finish.md"
-    }
-  },
-  "backend": {
-    "imageid": "ubuntu"
-  }
+    "title": "LFCS - Session 0 Assessment",
+      "description": "Initial technical evaluation",
+        "details": {
+            "intro": {
+                  "text": "intro.md",
+                        "background": "setup.sh"
+                            },
+                                "finish": {
+                                      "text": "finish.md"
+                                          }
+                                            },
+                                              "backend": {
+                                                  "imageid": "ubuntu"
+                                                    }
+                                                    }
+                                                    
 }
