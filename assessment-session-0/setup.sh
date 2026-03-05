@@ -1,6 +1,6 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 set -e
+
 
 echo "Preparing LFCS lab environment..."
 
