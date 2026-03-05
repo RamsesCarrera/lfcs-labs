@@ -8,6 +8,6 @@
   },
   "backend": {
     "imageid": "ubuntu",
-    "init": "bash setup.sh"
+    "foreground": "bash foreground.sh"
   }
 }
