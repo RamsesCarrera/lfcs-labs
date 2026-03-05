@@ -5,7 +5,7 @@
     "steps": [
       {
         "title": "Environment Setup",
-        "text": "step1.md",
+        "text": "intro.md",
         "commands": [
           "mkdir -p /home/student/textreferences /home/student/apps /opt/SAMPLE001 /srv/SAMPLE002 /opt/SAMPLE002",
           "echo 'Generating 8000 lines for Vim exercise...'",
