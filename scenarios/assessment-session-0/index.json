@@ -3,11 +3,11 @@
   "description": "Initial technical evaluation",
   "details": {
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "foreground": "setup.sh"
     }
   },
   "backend": {
-    "imageid": "ubuntu",
-    "foreground": "bash setup.sh"
+    "imageid": "ubuntu"
   }
 }
