@@ -12,6 +12,6 @@
   },
   "backend": {
     "imageid": "ubuntu",
-    "foreground": "assessment-session-0/foreground.sh"
+    "foreground": "lfcs-labs/assessment-session-0/foreground.sh"
   }
 }
