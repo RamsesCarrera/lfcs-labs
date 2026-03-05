@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-
 echo "Preparing LFCS lab environment..."
 
-cp /tmp/repo/git/assessment-session-0/*.sh /usr/local/bin/
+cp *.sh /usr/local/bin/
 chmod +x /usr/local/bin/*.sh
-
 
 # ------------------------------------------------
 # Install dependencies
@@ -99,7 +97,7 @@ chown -R student:student /opt/SAMPLE001.zip
 # ------------------------------------------------
 # Auto switch to student user when terminal opens
 # ------------------------------------------------
-echo "su - student" >> /home/ubuntu/.bashrc
+echo "su - student" >> /root/.bashrc
 
 # Make exam commands available
 cp /tmp/repo/git/assessment-session-0/*.sh /usr/local/bin/
