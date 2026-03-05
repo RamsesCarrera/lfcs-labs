@@ -3,8 +3,7 @@
   "description": "Initial technical evaluation",
   "details": {
     "intro": {
-      "text": "intro.md",
-      "foreground": "./setup.sh"
+      "text": "intro.md"
     }
   },
   "backend": {
