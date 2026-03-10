@@ -17,7 +17,7 @@ essential=0
 essential_total=8
 
 operations=0
-operations_total=4
+operations_total=5
 
 network=0
 network_total=2
@@ -314,12 +314,11 @@ storage_pct=$((storage*100/storage_total))
 users_pct=$((users*100/users_total))
 
 final=$(echo "scale=2;
-($operations_pct*0.25)+
-($network_pct*0.25)+
-($storage_pct*0.20)+
-($essential_pct*0.20)+
-($users_pct*0.10)" | bc 2>/dev/null)
-
+($operations_pct*25 +
+$network_pct*25 +
+$storage_pct*20 +
+$essential_pct*20 +
+$users_pct*10)/100" | bc)
 
 echo ""
 echo "=========================================="
